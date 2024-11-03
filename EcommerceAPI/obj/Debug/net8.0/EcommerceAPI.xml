@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EcommerceAPI</name>
+    </assembly>
+    <members>
+        <member name="T:EcommerceAPI.Controllers.AccountController">
+            <summary>
+            Controlador responsável pela autenticação do usuário via GitHub.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.AccountController.Login">
+            <summary>
+            Inicia o processo de login com o GitHub.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.AccountController.Logout">
+            <summary>
+            Faz logout do usuário autenticado.
+            </summary>
+        </member>
+        <member name="T:EcommerceAPI.Controllers.OrdersController">
+            <summary>
+            Controlador responsável pelas operações relacionadas aos pedidos.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.#ctor(EcommerceAPI.Services.IOrderService)">
+            <summary>
+            Inicializa uma nova instância da classe <see cref="T:EcommerceAPI.Controllers.OrdersController"/>.
+            </summary>
+            <param name="orderService">Serviço de pedidos.</param>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.GetAll">
+            <summary>
+            Obtém todos os pedidos.
+            </summary>
+            <returns>Uma lista de pedidos.</returns>
+            <response code="200">Retorna a lista de pedidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.GetById(System.Int32)">
+            <summary>
+            Obtém um pedido pelo ID.
+            </summary>
+            <param name="id">ID do pedido.</param>
+            <returns>O pedido solicitado.</returns>
+            <response code="200">Retorna o pedido.</response>
+            <response code="404">Se o pedido não for encontrado.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.Create(EcommerceAPI.Models.Order)">
+            <summary>
+            Cria um novo pedido.
+            </summary>
+            <param name="order">Dados do pedido a ser criado.</param>
+            <returns>O pedido criado.</returns>
+            <response code="201">Retorna o pedido criado.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.Update(System.Int32,EcommerceAPI.Models.Order)">
+            <summary>
+            Atualiza um pedido existente.
+            </summary>
+            <param name="id">ID do pedido a ser atualizado.</param>
+            <param name="order">Dados atualizados do pedido.</param>
+            <response code="204">Se a atualização for bem-sucedida.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.OrdersController.Delete(System.Int32)">
+            <summary>
+            Exclui um pedido pelo ID.
+            </summary>
+            <param name="id">ID do pedido a ser excluído.</param>
+            <response code="204">Se a exclusão for bem-sucedida.</response>
+        </member>
+        <member name="T:EcommerceAPI.Controllers.ProductsController">
+            <summary>
+            Controlador para gerenciar produtos.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.#ctor(EcommerceAPI.Services.IProductService)">
+            <summary>
+            Construtor do controlador de produtos.
+            </summary>
+            <param name="productService">Serviço de produtos injetado.</param>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.GetAll">
+            <summary>
+            Obtém todos os produtos disponíveis.
+            </summary>
+            <returns>Uma lista de produtos.</returns>
+            <response code="200">Retorna a lista de produtos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.GetById(System.Int32)">
+            <summary>
+            Obtém um produto específico pelo ID.
+            </summary>
+            <param name="id">ID do produto.</param>
+            <returns>O produto solicitado.</returns>
+            <response code="200">Retorna o produto.</response>
+            <response code="404">Se o produto não for encontrado.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Create(EcommerceAPI.Models.Product)">
+            <summary>
+            Cria um novo produto.
+            </summary>
+            <param name="product">Dados do produto a ser criado.</param>
+            <returns>O produto criado.</returns>
+            <response code="201">Produto criado com sucesso.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Update(System.Int32,EcommerceAPI.Models.Product)">
+            <summary>
+            Atualiza um produto existente.
+            </summary>
+            <param name="id">ID do produto a ser atualizado.</param>
+            <param name="product">Dados atualizados do produto.</param>
+            <response code="204">Produto atualizado com sucesso.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Delete(System.Int32)">
+            <summary>
+            Remove um produto pelo ID.
+            </summary>
+            <param name="id">ID do produto a ser removido.</param>
+            <response code="204">Produto removido com sucesso.</response>
+        </member>
+        <member name="T:EcommerceAPI.Controllers.RecommendationsController">
+            <summary>
+            Controlador responsável pelas recomendações de produtos.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.RecommendationsController.#ctor(EcommerceAPI.Services.IRecommendationService)">
+            <summary>
+            Inicializa uma nova instância da classe <see cref="T:EcommerceAPI.Controllers.RecommendationsController"/>.
+            </summary>
+            <param name="recommendationService">Serviço de recomendações.</param>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.RecommendationsController.GetRecommendations(System.Int32)">
+            <summary>
+            Obtém recomendações de produtos para um usuário específico.
+            </summary>
+            <param name="userId">ID do usuário.</param>
+            <returns>Uma lista de recomendações de produtos.</returns>
+            <response code="200">Retorna a lista de recomendações.</response>
+            <response code="400">Se não houver dados disponíveis ou ocorrer um erro.</response>
+        </member>
+        <member name="T:EcommerceAPI.Controllers.UsersController">
+            <summary>
+            Controlador responsável pelas operações relacionadas aos usuários.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.#ctor(EcommerceAPI.Services.IUserService)">
+            <summary>
+            Inicializa uma nova instância da classe <see cref="T:EcommerceAPI.Controllers.UsersController"/>.
+            </summary>
+            <param name="userService">Serviço de usuários.</param>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.GetAll">
+            <summary>
+            Obtém todos os usuários.
+            </summary>
+            <returns>Uma lista de usuários.</returns>
+            <response code="200">Retorna a lista de usuários.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.GetById(System.Int32)">
+            <summary>
+            Obtém um usuário pelo ID.
+            </summary>
+            <param name="id">ID do usuário.</param>
+            <returns>O usuário solicitado.</returns>
+            <response code="200">Retorna o usuário.</response>
+            <response code="404">Se o usuário não for encontrado.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.GetByEmail(System.String)">
+            <summary>
+            Obtém um usuário pelo e-mail.
+            </summary>
+            <param name="email">E-mail do usuário.</param>
+            <returns>O usuário solicitado.</returns>
+            <response code="200">Retorna o usuário.</response>
+            <response code="404">Se o usuário não for encontrado.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.Create(EcommerceAPI.Models.User)">
+            <summary>
+            Cria um novo usuário.
+            </summary>
+            <param name="user">Dados do usuário a ser criado.</param>
+            <returns>O usuário criado.</returns>
+            <response code="201">Retorna o usuário criado.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.Update(System.Int32,EcommerceAPI.Models.User)">
+            <summary>
+            Atualiza um usuário existente.
+            </summary>
+            <param name="id">ID do usuário a ser atualizado.</param>
+            <param name="user">Dados atualizados do usuário.</param>
+            <response code="204">Se a atualização for bem-sucedida.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.UsersController.Delete(System.Int32)">
+            <summary>
+            Exclui um usuário pelo ID.
+            </summary>
+            <param name="id">ID do usuário a ser excluído.</param>
+            <response code="204">Se a exclusão for bem-sucedida.</response>
+        </member>
+    </members>
+</doc>

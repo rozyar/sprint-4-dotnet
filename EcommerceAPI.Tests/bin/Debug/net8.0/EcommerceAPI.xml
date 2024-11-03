@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EcommerceAPI</name>
+    </assembly>
+    <members>
+        <member name="T:EcommerceAPI.Controllers.AccountController">
+            <summary>
+            Controlador responsável pela autenticação do usuário via GitHub.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.AccountController.Login">
+            <summary>
+            Inicia o processo de login com o GitHub.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.AccountController.Logout">
+            <summary>
+            Faz logout do usuário autenticado.
+            </summary>
+        </member>
+        <member name="T:EcommerceAPI.Controllers.ProductsController">
+            <summary>
+            Controlador para gerenciar produtos.
+            </summary>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.#ctor(EcommerceAPI.Services.IProductService)">
+            <summary>
+            Construtor do controlador de produtos.
+            </summary>
+            <param name="productService">Serviço de produtos injetado.</param>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.GetAll">
+            <summary>
+            Obtém todos os produtos disponíveis.
+            </summary>
+            <returns>Uma lista de produtos.</returns>
+            <response code="200">Retorna a lista de produtos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.GetById(System.Int32)">
+            <summary>
+            Obtém um produto específico pelo ID.
+            </summary>
+            <param name="id">ID do produto.</param>
+            <returns>O produto solicitado.</returns>
+            <response code="200">Retorna o produto.</response>
+            <response code="404">Se o produto não for encontrado.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Create(EcommerceAPI.Models.Product)">
+            <summary>
+            Cria um novo produto.
+            </summary>
+            <param name="product">Dados do produto a ser criado.</param>
+            <returns>O produto criado.</returns>
+            <response code="201">Produto criado com sucesso.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Update(System.Int32,EcommerceAPI.Models.Product)">
+            <summary>
+            Atualiza um produto existente.
+            </summary>
+            <param name="id">ID do produto a ser atualizado.</param>
+            <param name="product">Dados atualizados do produto.</param>
+            <response code="204">Produto atualizado com sucesso.</response>
+            <response code="400">Se os dados forem inválidos.</response>
+        </member>
+        <member name="M:EcommerceAPI.Controllers.ProductsController.Delete(System.Int32)">
+            <summary>
+            Remove um produto pelo ID.
+            </summary>
+            <param name="id">ID do produto a ser removido.</param>
+            <response code="204">Produto removido com sucesso.</response>
+        </member>
+    </members>
+</doc>
